@@ -1,0 +1,14 @@
+For Each ws In Worksheets
+    set your initial values
+    for i = 2 to row_count
+        ws.Cells(i,1).value = 12
+    next i
+next ws
+9:55
+For Each ws In Worksheets
+    set your initial values
+    for i = 2 to row_count
+        ws.Cells(i,1).value = 12
+        ws.Range("A4").Value = "Hello"
+    next i
+next ws
