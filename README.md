@@ -1,2 +1,3 @@
 # Vba-challenge-GHUB
-This is a folder with work from practice spreadsheet alphabetical_testing from hw#2 vba-challenge-GHUB
+This commit has working VBA Script for HW2 VBA Challenge - The VBA of Wall Street
+minus Bonus Part

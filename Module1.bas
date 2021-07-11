@@ -9,11 +9,13 @@ For Each ws In Worksheets
 Dim column As Integer
 column = 1
 
-Dim i As Long
+Dim i As Double
 i = 2
 
 Dim Ticker As String
 Dim Total_Volume As Double
+
+
 Total_Volume = 0
 
 Dim Opening_Price As Double
@@ -24,16 +26,44 @@ Dim Closing_Price As Double
 Dim Price_Change As Double
 Dim Price_Change_Percent As Double
 
+
+'if Price_Change_Percent > Price_Change_Percent then
+'Greatest_Price_Change_Percent_Increase = Price_Change_Percent
+
+
 Cells(1, 9).Value = "TICKER"
 Cells(1, 10).Value = "YEAR CHANGE"
 Cells(1, 11).Value = "YEAR CHANGE (%)"
 Cells(1, 12).Value = "TOTAL VOLUME"
 
+'Cells(1, 17).Value = "TICKER"
+'Cells(1, 18).Value = "VALUE"
+
+'Cells(2, 16).Value = "GREATEST % INCREASE"
+'Cells(3, 16).Value = "GREATEST % DECREASE"
+'Cells(4, 16).Value = "GREATEST TOTAL VOLUME"
+
+Columns(9).AutoFit
+Columns(10).AutoFit
+Columns(11).AutoFit
+Columns(12).AutoFit
+'Columns(16).AutoFit
+'Columns(17).AutoFit
+'Columns(18).AutoFit
+
+
+
+
+
+
+
 'Keep track of location for each stock in the summary
-Dim Summary_Table_Row As Integer
+Dim Summary_Table_Row As Double
 Summary_Table_Row = 2
 
-Dim LastRow As Long
+
+
+Dim LastRow As Double
 
 'counts the number of rows
 LastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
@@ -79,9 +109,19 @@ For i = 2 To LastRow
         'Print Price_Change to Summary Table
         Range("J" & Summary_Table_Row).Value = Price_Change
         
+        If Opening_Price = 0 Then
+        Price_Change_Percent = 0
+        Else
         
         'Price_Change Percent  (*100)
-        Price_Change_Percent = (Closing_Price - Opening_Price) / Opening_Price
+        Price_Change_Percent = (Price_Change / Opening_Price) * 100
+        End If
+        
+        
+        
+        
+        
+        
         
         
         'Print Price_Change Percent  (*100)
@@ -89,6 +129,20 @@ For i = 2 To LastRow
         
         'Print Price_Change_Percent to Summary Table
         Range("K" & Summary_Table_Row).Value = Price_Change_Percent
+        Range("K" & Summary_Table_Row).NumberFormat = "0.00"
+        
+        '
+        
+        
+        
+        If Price_Change_Percent < 0 Then
+        Range("K" & Summary_Table_Row).Interior.ColorIndex = 3
+        
+        
+        Else
+            Range("K" & Summary_Table_Row).Interior.ColorIndex = 4
+        
+        End If
   
         'Set opening_price as first entry of a group
         Opening_Price = Cells(i + 1, 3).Value
@@ -120,6 +174,7 @@ For i = 2 To LastRow
   
         'Add to Total_Volume
          Total_Volume = Total_Volume + Cells(i, 7).Value
+         
     
    
     
@@ -127,8 +182,8 @@ For i = 2 To LastRow
     
      Next i
     
-   
    Next ws
    
 
 End Sub
+
