@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 
 # gitignore test1
+# gitignore test2
 __pycache__/
 *.py[cod]
 *$py.class
