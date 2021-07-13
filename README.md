@@ -1,4 +1,4 @@
 # Vba-challenge-GHUB
-This commit has working VBA Script for HW2 VBA Challenge - The VBA of Wall Street
-Bonus included --- will conduct final review before submitting
+This commit has Completed VBA Script for HW2 VBA Challenge - The VBA of Wall Street
+Bonus included --- This will be Submitted for Grade
 

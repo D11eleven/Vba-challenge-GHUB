@@ -2,6 +2,7 @@
 
 # gitignore test1
 # gitignore test2
+# gitignore test3 
 __pycache__/
 *.py[cod]
 *$py.class
